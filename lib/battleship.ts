@@ -153,6 +153,10 @@ export class Game {
   }
 
   isValidPlacement(ship: Ship) {
-    return true;
+    if (ship.direction === Direction.HORIZONTAL) {
+      return ship.col + ship.size <= this.board.getBoardSize();
+    } else {
+      return ship.row + ship.size <= this.board.getBoardSize();
+    }
   }
 }

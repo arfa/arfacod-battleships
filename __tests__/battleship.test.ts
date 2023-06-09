@@ -106,4 +106,15 @@ describe('Game', () => {
     // it should add the ship to the array of ships
     expect(game.getShips().length).toBe(1);
   });
+
+  it('should not be able to place a ship if it is out of bounds', () => {
+    const game = new Game(BOARD_SIZE);
+    const board = game.getBoard();
+
+    // it should not print the ship on the board
+    expect(board.getBoardValue(BOARD_SIZE - 1, BOARD_SIZE - 1)).toBe(' ');
+
+    // it should not add the ship to the array of ships
+    expect(game.getShips().length).toBe(0);
+  });
 });
