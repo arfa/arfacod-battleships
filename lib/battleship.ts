@@ -50,6 +50,14 @@ export class Ship {
   isSunk() {
     return this.sunk;
   }
+
+  inTarget(row: number, col: number) {
+    if (this.direction === Direction.HORIZONTAL) {
+      return row === this.row && col >= this.col && col < this.col + this.size;
+    } else {
+      return col === this.col && row >= this.row && row < this.row + this.size;
+    }
+  }
 }
 
 export class Battleship extends Ship {
@@ -167,5 +175,16 @@ export class Game {
       }
     }
     return true;
+  }
+
+  attack(row: number, col: number) {
+    for (let i = 0; i < this.ships.length; i++) {
+      if (this.ships[i].inTarget(row, col)) {
+        this.ships[i].hit();
+        this.board.setBoardValue(row, col, 'X');
+        return;
+      }
+    }
+    this.board.setBoardValue(row, col, 'O');
   }
 }
