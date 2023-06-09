@@ -1,25 +1,32 @@
-# Next.js + Jest
+# BattleShips
 
-This example shows how to configure Jest to work with Next.js.
-
-This includes Next.js' built-in support for Global CSS, CSS Modules and TypeScript.
+## Description
+This is a simple battleships game made with Next.js and React. It is a work in progress.
 
 ## How to Use
 
-Quickly get started using [Create Next App](https://github.com/vercel/next.js/tree/canary/packages/create-next-app#readme)!
-
-In your terminal, run the following command:
+### Install Dependencies
 
 ```bash
-npx create-next-app --example with-jest with-jest-app
+npm install
 ```
 
-```bash
-yarn create next-app --example with-jest with-jest-app
-```
+### Run Dev Server
 
 ```bash
-pnpm create next-app --example with-jest with-jest-app
+npm run dev
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Run Production Server
+
+```bash
+npm start
 ```
 
 ## Run Jest Tests
