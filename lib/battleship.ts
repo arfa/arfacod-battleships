@@ -154,9 +154,18 @@ export class Game {
 
   isValidPlacement(ship: Ship) {
     if (ship.direction === Direction.HORIZONTAL) {
-      return ship.col + ship.size <= this.board.getBoardSize();
+      for (let i = 0; i < ship.size; i++) {
+        if (this.board.getBoardValue(ship.row, ship.col + i) !== ' ') {
+          return false;
+        }
+      }
     } else {
-      return ship.row + ship.size <= this.board.getBoardSize();
+      for (let i = 0; i < ship.size; i++) {
+        if (this.board.getBoardValue(ship.row + i, ship.col) !== ' ') {
+          return false;
+        }
+      }
     }
+    return true;
   }
 }

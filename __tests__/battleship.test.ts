@@ -117,4 +117,27 @@ describe('Game', () => {
     // it should not add the ship to the array of ships
     expect(game.getShips().length).toBe(0);
   });
+
+  it('should not be able to place a ship if it overlaps another ship', () => {
+    const game = new Game(BOARD_SIZE);
+    const board = game.getBoard();
+
+    game.placeShip(new Destroyer(0, 0, Direction.HORIZONTAL));
+    game.placeShip(new Destroyer(0, 0, Direction.VERTICAL));
+
+    // it should print the first ship on the board
+    expect(board.getBoardValue(0, 0)).toBe('S');
+    expect(board.getBoardValue(0, 1)).toBe('S');
+    expect(board.getBoardValue(0, 2)).toBe('S');
+    expect(board.getBoardValue(0, 3)).toBe('S');
+
+    // it should add one ship to the array of ships
+    expect(game.getShips().length).toBe(1);
+
+    // it should not print the second ship on the board
+    expect(board.getBoardValue(0, 0)).toBe('S');
+    expect(board.getBoardValue(1, 0)).toBe(' ');
+    expect(board.getBoardValue(2, 0)).toBe(' ');
+    expect(board.getBoardValue(3, 0)).toBe(' ');
+  });
 });
