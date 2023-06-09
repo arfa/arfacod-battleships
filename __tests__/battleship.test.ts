@@ -91,4 +91,19 @@ describe('Game', () => {
     expect(game.getBoard().getBoardSize()).toBe(BOARD_SIZE);
     expect(game.getShips().length).toBe(0);
   });
+
+  it('should be able to place a ship', () => {
+    const game = new Game(BOARD_SIZE);
+    const board = game.getBoard();
+    game.placeShip(new Destroyer(0, 0, Direction.HORIZONTAL));
+
+    // it should print the ship on the board
+    expect(board.getBoardValue(0, 0)).toBe('S');
+    expect(board.getBoardValue(0, 1)).toBe('S');
+    expect(board.getBoardValue(0, 2)).toBe('S');
+    expect(board.getBoardValue(0, 3)).toBe('S');
+
+    // it should add the ship to the array of ships
+    expect(game.getShips().length).toBe(1);
+  });
 });

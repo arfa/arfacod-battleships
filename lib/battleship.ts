@@ -130,4 +130,29 @@ export class Game {
   getShips() {
     return this.ships;
   }
+
+  printShip(ship: Ship) {
+    if (ship.direction === Direction.HORIZONTAL) {
+      for (let i = 0; i < ship.size; i++) {
+        this.board.setBoardValue(ship.row, ship.col + i, 'S');
+      }
+    } else {
+      for (let i = 0; i < ship.size; i++) {
+        this.board.setBoardValue(ship.row + i, ship.col, 'S');
+      }
+    }
+  }
+
+  placeShip(ship: Ship) {
+    if (this.isValidPlacement(ship)) {
+      this.printShip(ship);
+      this.ships.push(ship);
+    } else {
+      console.log('Invalid ship placement');
+    }
+  }
+
+  isValidPlacement(ship: Ship) {
+    return true;
+  }
 }
