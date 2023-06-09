@@ -1,19 +1,19 @@
-enum ShipType {
+export enum ShipType {
   BATTLESHIP,
   DESTROYER,
 }
 
-enum ShipSize {
+export enum ShipSize {
   BATTLESHIP = 5,
   DESTROYER = 4,
 }
 
-enum Direction {
+export enum Direction {
   HORIZONTAL,
   VERTICAL,
 }
 
-interface ShipOptions {
+export interface ShipOptions {
   size: ShipSize;
   type: ShipType;
   hits: number;
@@ -23,7 +23,7 @@ interface ShipOptions {
   direction: Direction;
 }
 
-class Ship {
+export class Ship {
   size: ShipSize;
   type: ShipType;
   hits: number;
@@ -52,7 +52,7 @@ class Ship {
   }
 }
 
-class Battleship extends Ship {
+export class Battleship extends Ship {
   constructor(col: number, row: number, direction: Direction) {
     super({
       size: ShipSize.BATTLESHIP,
@@ -66,7 +66,7 @@ class Battleship extends Ship {
   }
 }
 
-class Destroyer extends Ship {
+export class Destroyer extends Ship {
   constructor(col: number, row: number, direction: Direction) {
     super({
       size: ShipSize.DESTROYER,
@@ -80,7 +80,7 @@ class Destroyer extends Ship {
   }
 }
 
-class Board {
+export class Board {
   private boardSize: number;
   private board: string[][];
 
@@ -114,7 +114,7 @@ class Board {
   }
 }
 
-class Game {
+export class Game {
   private board: Board;
   private ships: Ship[];
 
