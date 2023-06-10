@@ -3,13 +3,13 @@ import {
   Ship,
   Battleship,
   Destroyer,
-  Board,
-  Game,
   Direction,
   ShipSize,
   ShipOptions,
   ShipType,
-} from '@/lib/battleship';
+} from '@/lib/battleship/ship';
+import { Game } from '@/lib/battleship/game';
+import { Board } from '@/lib/battleship/board';
 
 const BOARD_SIZE = 10;
 
