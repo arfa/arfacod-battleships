@@ -187,4 +187,17 @@ export class Game {
     }
     this.board.setBoardValue(row, col, 'O');
   }
+
+  isGameOver() {
+    return this.ships.every((ship) => ship.isSunk());
+  }
+
+  play(row: number, col: number) {
+    if (this.isGameOver()) {
+      console.log('Game over');
+      return;
+    }
+
+    this.attack(row, col);
+  }
 }
