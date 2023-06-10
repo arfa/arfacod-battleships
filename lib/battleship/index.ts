@@ -3,14 +3,15 @@ import { BoardBuilder } from './boardBuilder';
 import { Game } from './game';
 import { Destroyer, Battleship, Direction } from './ship';
 
-export function playGame() {
-  const ships = [
-    new Destroyer(0, 0, Direction.HORIZONTAL),
-    new Battleship(1, 1, Direction.VERTICAL),
-  ];
+const BOARD_SIZE = 10;
 
-  const shipPlacer = new BoardBuilder(new Board(10), ships);
-  const game = new Game(shipPlacer);
+export function playGame() {
+  const boardBuilder = new BoardBuilder(new Board(BOARD_SIZE));
+  boardBuilder
+    .placeShip(new Destroyer(0, 0, Direction.HORIZONTAL))
+    .placeShip(new Battleship(0, 3, Direction.VERTICAL));
+
+  const game = new Game(boardBuilder);
 
   const board = game.getBoard();
 
