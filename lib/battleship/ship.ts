@@ -1,6 +1,6 @@
 export enum ShipType {
-  BATTLESHIP,
-  DESTROYER,
+  BATTLESHIP = 'BATTLESHIP',
+  DESTROYER = 'DESTROYER',
 }
 
 export enum ShipSize {
@@ -9,8 +9,8 @@ export enum ShipSize {
 }
 
 export enum Direction {
-  HORIZONTAL,
-  VERTICAL,
+  HORIZONTAL = 'HORIZONTAL',
+  VERTICAL = 'VERTICAL',
 }
 
 export interface ShipOptions {
