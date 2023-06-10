@@ -2,10 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import styles from '@/pages/index.module.css';
-import { playGame } from '@/lib/battleship';
 
 export default function Home() {
-  playGame();
   return (
     <div className={styles.container}>
       <Head>

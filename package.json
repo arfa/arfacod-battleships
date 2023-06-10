@@ -4,10 +4,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "start:cli": "npx ts-node --skipProject ./lib/battleship",
     "test": "jest --watch",
     "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@inquirer/prompts": "2.1.1",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
