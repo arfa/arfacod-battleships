@@ -2,10 +2,12 @@ import { Board } from './board';
 import { Ship, Direction } from './ship';
 
 export class BoardBuilder {
-  constructor(private board: Board, private ships: Ship[]) {
+  private board: Board;
+  private ships: Ship[];
+
+  constructor(board: Board) {
     this.board = board;
     this.ships = [];
-    ships.forEach((ship) => this.placeShip(ship));
   }
 
   getBoard() {
@@ -18,16 +20,18 @@ export class BoardBuilder {
 
   placeShip(ship: Ship) {
     if (this.isValidPlacement(ship)) {
-      this.printShip(ship);
+      this.updateBoard(ship);
       this.ships.push(ship);
     } else {
       console.log(
         `Invalid ship placement for ${ship.type}: \n${ship.row}, ${ship.col} ${ship.direction}`
       );
     }
+
+    return this;
   }
 
-  isValidPlacement(ship: Ship) {
+  private isValidPlacement(ship: Ship) {
     if (ship.direction === Direction.HORIZONTAL) {
       for (let i = 0; i < ship.size; i++) {
         if (this.board.getBoardValue(ship.row, ship.col + i) !== ' ') {
@@ -44,7 +48,7 @@ export class BoardBuilder {
     return true;
   }
 
-  printShip(ship: Ship) {
+  private updateBoard(ship: Ship) {
     if (ship.direction === Direction.HORIZONTAL) {
       for (let i = 0; i < ship.size; i++) {
         this.board.setBoardValue(ship.row, ship.col + i, 'S');
