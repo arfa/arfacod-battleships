@@ -1,18 +1,18 @@
-import { Board } from './board';
+import { Grid } from './grid';
 import { BoardBuilder } from './boardBuilder';
 import { Direction, Ship } from './ship';
 
 export class Game {
-  private board: Board;
+  private grid: Grid;
   private ships: Ship[];
 
   constructor(shipBoardBuilder: BoardBuilder) {
-    this.board = shipBoardBuilder.getBoard();
+    this.grid = shipBoardBuilder.getGrid();
     this.ships = shipBoardBuilder.getShips();
   }
 
-  getBoard() {
-    return this.board;
+  getGrid() {
+    return this.grid;
   }
 
   getShips() {
@@ -23,11 +23,11 @@ export class Game {
     for (let i = 0; i < this.ships.length; i++) {
       if (this.ships[i].inTarget(row, col)) {
         this.ships[i].hit();
-        this.board.setBoardValue(row, col, 'X');
+        this.grid.setValue(row, col, 'X');
         return;
       }
     }
-    this.board.setBoardValue(row, col, 'O');
+    this.grid.setValue(row, col, 'O');
   }
 
   isGameOver() {
