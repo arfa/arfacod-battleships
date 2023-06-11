@@ -3,19 +3,14 @@ import { BoardBuilder } from './boardBuilder';
 import { Game } from './game';
 import { Direction, ShipFactory, ShipType } from './ship';
 import { input } from '@inquirer/prompts';
+import { RandomPlacer } from './boardPlacer';
 
 const BOARD_SIZE = 10;
 
 export async function playGame() {
-  const boardBuilder = new BoardBuilder(new Grid(BOARD_SIZE));
-  const battleship = ShipFactory.createShip(ShipType.BATTLESHIP, 0, 0, Direction.HORIZONTAL);
-  const destroyer = ShipFactory.createShip(ShipType.DESTROYER, 0, 3, Direction.VERTICAL);
-
-  boardBuilder.placeShip(battleship).placeShip(destroyer);
-
+  const grid = new Grid(BOARD_SIZE);
+  const boardBuilder = new BoardBuilder(grid).use(new RandomPlacer()).build('random');
   const game = new Game(boardBuilder);
-
-  const grid = game.getGrid();
 
   while (!game.isGameOver()) {
     const answer = await input({ message: 'Enter a coordinate to attack (e.g. A1): ' });
