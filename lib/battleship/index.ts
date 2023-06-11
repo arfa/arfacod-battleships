@@ -1,4 +1,4 @@
-import { Board } from './board';
+import { Grid } from './grid';
 import { BoardBuilder } from './boardBuilder';
 import { Game } from './game';
 import { Direction, ShipFactory, ShipType } from './ship';
@@ -7,7 +7,7 @@ import { input } from '@inquirer/prompts';
 const BOARD_SIZE = 10;
 
 export async function playGame() {
-  const boardBuilder = new BoardBuilder(new Board(BOARD_SIZE));
+  const boardBuilder = new BoardBuilder(new Grid(BOARD_SIZE));
   const battleship = ShipFactory.createShip(ShipType.BATTLESHIP, 0, 0, Direction.HORIZONTAL);
   const destroyer = ShipFactory.createShip(ShipType.DESTROYER, 0, 3, Direction.VERTICAL);
 
@@ -15,7 +15,7 @@ export async function playGame() {
 
   const game = new Game(boardBuilder);
 
-  const board = game.getBoard();
+  const grid = game.getGrid();
 
   while (!game.isGameOver()) {
     const answer = await input({ message: 'Enter a coordinate to attack (e.g. A1): ' });
@@ -24,13 +24,13 @@ export async function playGame() {
     if (formattedAnswer.match(/^[A-J][0-9]$/)) {
       const col = formattedAnswer.charCodeAt(0) - 65;
       const row = parseInt(formattedAnswer[1]);
-      if (row < 0 || row >= board.getBoardSize() || col < 0 || col >= board.getBoardSize()) {
+      if (row < 0 || row >= grid.getSize() || col < 0 || col >= grid.getSize()) {
         console.log('coordinate out of bounds, please try again');
         continue;
       }
 
       game.play(row, col);
-      console.log(board.render());
+      console.log(grid.render());
     } else {
       console.log('Invalid coordinate, please try again');
     }

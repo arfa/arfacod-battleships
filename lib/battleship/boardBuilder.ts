@@ -1,17 +1,17 @@
-import { Board } from './board';
+import { Grid } from './grid';
 import { Ship, Direction } from './ship';
 
 export class BoardBuilder {
-  private board: Board;
+  private grid: Grid;
   private ships: Ship[];
 
-  constructor(board: Board) {
-    this.board = board;
+  constructor(grid: Grid) {
+    this.grid = grid;
     this.ships = [];
   }
 
-  getBoard() {
-    return this.board;
+  getGrid() {
+    return this.grid;
   }
 
   getShips() {
@@ -34,13 +34,13 @@ export class BoardBuilder {
   private isValidPlacement(ship: Ship) {
     if (ship.direction === Direction.HORIZONTAL) {
       for (let i = 0; i < ship.size; i++) {
-        if (this.board.getBoardValue(ship.row, ship.col + i) !== ' ') {
+        if (this.grid.getValue(ship.row, ship.col + i) !== ' ') {
           return false;
         }
       }
     } else {
       for (let i = 0; i < ship.size; i++) {
-        if (this.board.getBoardValue(ship.row + i, ship.col) !== ' ') {
+        if (this.grid.getValue(ship.row + i, ship.col) !== ' ') {
           return false;
         }
       }
@@ -51,11 +51,11 @@ export class BoardBuilder {
   private updateBoard(ship: Ship) {
     if (ship.direction === Direction.HORIZONTAL) {
       for (let i = 0; i < ship.size; i++) {
-        this.board.setBoardValue(ship.row, ship.col + i, 'S');
+        this.grid.setValue(ship.row, ship.col + i, 'S');
       }
     } else {
       for (let i = 0; i < ship.size; i++) {
-        this.board.setBoardValue(ship.row + i, ship.col, 'S');
+        this.grid.setValue(ship.row + i, ship.col, 'S');
       }
     }
   }

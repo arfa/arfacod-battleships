@@ -52,3 +52,5 @@ npm test
 - I have separated tests for the entities.
 
 - I have created an index.ts file to play the game in the web console.
+
+- I have created a basic UI with React.
