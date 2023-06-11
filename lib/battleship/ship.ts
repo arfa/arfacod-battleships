@@ -87,3 +87,16 @@ export class Destroyer extends Ship {
     });
   }
 }
+
+export class ShipFactory {
+  static createShip(type: ShipType, col: number, row: number, direction: Direction) {
+    switch (type) {
+      case ShipType.BATTLESHIP:
+        return new Battleship(col, row, direction);
+      case ShipType.DESTROYER:
+        return new Destroyer(col, row, direction);
+      default:
+        throw new Error('Invalid ship type');
+    }
+  }
+}
