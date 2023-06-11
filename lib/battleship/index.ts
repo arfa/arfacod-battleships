@@ -1,16 +1,11 @@
-import { Grid } from './grid';
-import { BoardBuilder } from './boardBuilder';
-import { Game } from './game';
-import { Direction, ShipFactory, ShipType } from './ship';
+import { GameFactory } from './game';
 import { input } from '@inquirer/prompts';
-import { RandomPlacer } from './boardPlacer';
 
 const BOARD_SIZE = 10;
 
 export async function playGame() {
-  const grid = new Grid(BOARD_SIZE);
-  const boardBuilder = new BoardBuilder(grid).use(new RandomPlacer()).build('random');
-  const game = new Game(boardBuilder);
+  const game = GameFactory.createGame(BOARD_SIZE);
+  const grid = game.getGrid();
 
   while (!game.isGameOver()) {
     const answer = await input({ message: 'Enter a coordinate to attack (e.g. A1): ' });
