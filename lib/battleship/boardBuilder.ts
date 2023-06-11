@@ -50,15 +50,22 @@ export class BoardBuilder {
   }
 
   private isValidPlacement(ship: Ship) {
+    console.log('ship: ', ship);
     if (ship.direction === Direction.HORIZONTAL) {
       for (let i = 0; i < ship.size; i++) {
-        if (this.grid.getValue(ship.row, ship.col + i) !== ' ') {
+        if (
+          ship.col + i >= this.grid.getSize() ||
+          this.grid.getValue(ship.row, ship.col + i) !== ' '
+        ) {
           return false;
         }
       }
     } else {
-      for (let i = 0; i < ship.size; i++) {
-        if (this.grid.getValue(ship.row + i, ship.col) !== ' ') {
+      for (let j = 0; j < ship.size; j++) {
+        if (
+          ship.row + j >= this.grid.getSize() ||
+          this.grid.getValue(ship.row + j, ship.col) !== ' '
+        ) {
           return false;
         }
       }

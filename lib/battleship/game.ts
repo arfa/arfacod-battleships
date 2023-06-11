@@ -1,6 +1,7 @@
 import { Grid } from './grid';
 import { BoardBuilder } from './boardBuilder';
-import { Direction, Ship } from './ship';
+import { Ship } from './ship';
+import { RandomPlacer } from './boardPlacer';
 
 export class Game {
   private grid: Grid;
@@ -40,5 +41,15 @@ export class Game {
     if (this.isGameOver()) {
       console.log('Game over - you win!');
     }
+  }
+}
+
+export class GameFactory {
+  static createGame(BOARD_SIZE: number) {
+    const grid = new Grid(BOARD_SIZE);
+    const boardBuilder = new BoardBuilder(grid).use(new RandomPlacer()).build('random');
+    const game = new Game(boardBuilder);
+
+    return game;
   }
 }
