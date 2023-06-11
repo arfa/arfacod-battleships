@@ -12,7 +12,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className={styles.title}>
+        <h1 className='text-3xl font-bold underline'>
           Welcome to <a href='https://nextjs.org'>Next.js!</a>
         </h1>
 
