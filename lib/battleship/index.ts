@@ -1,16 +1,17 @@
 import { Board } from './board';
 import { BoardBuilder } from './boardBuilder';
 import { Game } from './game';
-import { Destroyer, Battleship, Direction } from './ship';
+import { Direction, ShipFactory, ShipType } from './ship';
 import { input } from '@inquirer/prompts';
 
 const BOARD_SIZE = 10;
 
 export async function playGame() {
   const boardBuilder = new BoardBuilder(new Board(BOARD_SIZE));
-  boardBuilder
-    .placeShip(new Destroyer(0, 0, Direction.HORIZONTAL))
-    .placeShip(new Battleship(0, 3, Direction.VERTICAL));
+  const battleship = ShipFactory.createShip(ShipType.BATTLESHIP, 0, 0, Direction.HORIZONTAL);
+  const destroyer = ShipFactory.createShip(ShipType.DESTROYER, 0, 3, Direction.VERTICAL);
+
+  boardBuilder.placeShip(battleship).placeShip(destroyer);
 
   const game = new Game(boardBuilder);
 
