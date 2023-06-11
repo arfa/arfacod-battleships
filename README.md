@@ -53,4 +53,17 @@ npm test
 
 - I have created an index.ts file to play the game in the web console.
 
-- I have created a basic UI with React.
+- I have used some design patterns like the factory pattern to create the ships and the builder pattern to build the board.
+
+- I have created a node console interface to play the game in the terminal using the `@inquirer/prompts` package.
+
+- I have renamed the entities and other things for better abstraction and readability. 
+
+
+## Roadmap 
+
+### 11-06-2023
+
+- `[ In progress ]` I have used more design patterns to improve the code.
+
+- `[ In progress ]` I have created a basic UI using React and Next.js.
