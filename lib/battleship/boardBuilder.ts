@@ -1,13 +1,31 @@
 import { Grid } from './grid';
 import { Ship, Direction } from './ship';
+import { Strategy } from './types';
 
 export class BoardBuilder {
   private grid: Grid;
   private ships: Ship[];
+  private strategies: Record<string, Strategy> = {};
 
   constructor(grid: Grid) {
     this.grid = grid;
     this.ships = [];
+  }
+
+  use(strategy: Strategy) {
+    this.strategies[strategy.name] = strategy;
+    return this;
+  }
+
+  build(name: string, ...args: any) {
+    if (!this.strategies[name]) {
+      console.error(`Strategy ${name} does not exist`);
+      return this;
+    }
+
+    this.strategies[name].build([this, ...args]);
+
+    return this;
   }
 
   getGrid() {

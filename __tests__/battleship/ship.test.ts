@@ -2,10 +2,10 @@ import {
   Ship,
   Battleship,
   Destroyer,
-  Direction,
-  ShipSize,
   ShipOptions,
+  ShipSize,
   ShipType,
+  Direction,
 } from '@/lib/battleship/ship';
 
 const shipOptions: ShipOptions = {
