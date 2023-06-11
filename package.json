@@ -6,7 +6,9 @@
     "start": "next start",
     "start:cli": "npx ts-node --skipProject ./lib/battleship",
     "test": "jest --watch",
-    "test:ci": "jest --ci"
+    "test:ci": "jest --ci",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@inquirer/prompts": "2.1.1",
@@ -15,15 +17,28 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "7.22.5",
+    "@babel/preset-react": "7.22.5",
+    "@babel/preset-typescript": "7.22.5",
+    "@storybook/addon-essentials": "7.0.20",
+    "@storybook/addon-interactions": "7.0.20",
+    "@storybook/addon-links": "7.0.20",
+    "@storybook/blocks": "7.0.20",
+    "@storybook/react": "7.0.20",
+    "@storybook/react-webpack5": "7.0.20",
+    "@storybook/testing-library": "^0.0.14-next.2",
     "@testing-library/jest-dom": "5.16.4",
     "@testing-library/react": "14.0.0",
     "@testing-library/user-event": "14.4.3",
     "@types/react": "18.0.28",
     "@types/testing-library__jest-dom": "5.14.5",
     "autoprefixer": "10.4.14",
+    "eslint-plugin-storybook": "0.6.12",
     "jest": "29.5.0",
     "jest-environment-jsdom": "29.5.0",
     "postcss": "8.4.24",
+    "prop-types": "15.8.1",
+    "storybook": "7.0.20",
     "tailwindcss": "3.3.2",
     "typescript": "4.9.5"
   }
