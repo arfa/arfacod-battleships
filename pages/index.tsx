@@ -13,7 +13,6 @@ export default function Home() {
 
   useEffect(() => {
     if (ref?.current && window) {
-      console.log(ref);
       // @ts-ignore
       gradient.initGradient('#gradient-canvas');
     }
