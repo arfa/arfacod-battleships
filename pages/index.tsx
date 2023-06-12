@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 import styles from '@/pages/index.module.css';
+import { BattleShips } from 'containers/BattleShips';
 
 export default function Home() {
   return (
@@ -19,6 +20,8 @@ export default function Home() {
         <p className={styles.description}>
           Get started by editing <code>pages/index.js</code>
         </p>
+
+        <BattleShips />
 
         <div className={styles.grid}>
           <a href='https://nextjs.org/docs' className={styles.card}>
