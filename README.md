@@ -1,5 +1,7 @@
 # BattleShips
 
+### [Demo](https://arfacod-battleships.vercel.app/) | [Storybook](https://develop--6486a99e62c3ba59643b6104.chromatic.com)
+
 ## Description
 This is a simple battleships game made with Next.js and React. It is a work in progress.
 
