@@ -1,7 +1,5 @@
-import React from 'react';
-
 export type GridCellProps = {
-  value: 'S' | 'X' | 'O' | ' ';
+  value: string;
   width?: number;
   height?: number;
   onClick: () => void;
