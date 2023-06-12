@@ -13,6 +13,12 @@ This is a simple battleships game made with Next.js and React. It is a work in p
 npm install
 ```
 
+### Run on Terminal
+
+```bash
+npm run start:cli
+```
+
 ### Run Dev Server
 
 ```bash
@@ -25,11 +31,15 @@ npm run dev
 npm run build
 ```
 
-### Run Production Server
+
+
+### Build for Production and Run Server
 
 ```bash
-npm start
+> npm run build
+> npm run start
 ```
+
 
 ## Run Jest Tests
 
@@ -73,10 +83,12 @@ npm test
 
 ## Roadmap 
 
-- `[in progress]` more Design Patterns
+- more Design Patterns
 
-- `[in progress]` improve UI (add animations, add sounds, add more features, etc.)
+- add more features to the game (players, score, etc.)
 
-- `[in progress]` improve tests
+- improve UI (add animations, add sounds, etc.)
 
-- `[in progress]` improve documentation
+- improve tests
+
+- improve documentation
