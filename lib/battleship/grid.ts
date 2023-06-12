@@ -46,4 +46,12 @@ export class Grid {
     }
     return gridString;
   }
+
+  getSnapshot() {
+    return this.grid.map((row) =>
+      row.map((col) => {
+        return col === 'S' ? ' ' : col;
+      })
+    );
+  }
 }
