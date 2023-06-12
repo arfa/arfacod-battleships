@@ -50,7 +50,6 @@ export class BoardBuilder {
   }
 
   private isValidPlacement(ship: Ship) {
-    console.log('ship: ', ship);
     if (ship.direction === Direction.HORIZONTAL) {
       for (let i = 0; i < ship.size; i++) {
         if (

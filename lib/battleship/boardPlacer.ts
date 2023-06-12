@@ -1,5 +1,5 @@
 import { BoardBuilder } from './boardBuilder';
-import { Direction, ShipFactory, ShipType } from './ship';
+import { Direction, ShipFactory, ShipSize, ShipType } from './ship';
 import { Strategy } from './types';
 
 export class RandomPlacer implements Strategy {
@@ -14,8 +14,8 @@ export class RandomPlacer implements Strategy {
 
     while (ships.length < shipTypes.length) {
       const type = shipTypes[ships.length];
-      const col = Math.floor(Math.random() * grid.getSize());
-      const row = Math.floor(Math.random() * grid.getSize());
+      const col = Math.floor(Math.random() * (grid.getSize() - ShipSize[type]));
+      const row = Math.floor(Math.random() * (grid.getSize() - ShipSize[type]));
       const direction = Math.random() > 0.5 ? Direction.HORIZONTAL : Direction.VERTICAL;
 
       const ship = ShipFactory.createShip(type, col, row, direction);

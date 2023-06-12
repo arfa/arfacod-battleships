@@ -2,7 +2,7 @@ import { GridCell } from '../GridCell';
 
 export type GridProps = {
   grid: string[][];
-  onCellClick: (row: number, col: number) => void;
+  onCellClick?: (row: number, col: number) => void;
 };
 
 export const Grid = ({ grid, onCellClick }: GridProps) => (
@@ -12,7 +12,7 @@ export const Grid = ({ grid, onCellClick }: GridProps) => (
         <GridCell
           key={`${rowIndex}-${colIndex}`}
           value={col}
-          onClick={() => onCellClick(rowIndex, colIndex)}
+          onClick={() => onCellClick && onCellClick(rowIndex, colIndex)}
         />
       ))
     )}
