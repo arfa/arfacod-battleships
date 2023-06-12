@@ -59,11 +59,22 @@ npm test
 
 - I have renamed the entities and other things for better abstraction and readability. 
 
+### 11-06-2023
+
+- I have used more design patterns to improve the code.
+
+- I have created a basic UI using React and Next.js.
+
+- I have set up storybook to create the UI components.
+
+- I have set up Chromatic to test the UI components.
 
 ## Roadmap 
 
-### 11-06-2023
+- `[in progress]` more Design Patterns
 
-- `[ In progress ]` I have used more design patterns to improve the code.
+- `[in progress]` improve UI (add animations, add sounds, add more features, etc.)
 
-- `[ In progress ]` I have created a basic UI using React and Next.js.
+- `[in progress]` improve tests
+
+- `[in progress]` improve documentation
